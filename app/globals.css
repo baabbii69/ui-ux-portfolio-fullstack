@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────
+   TAILWIND v4 THEME — Design Tokens
+───────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-film-black: #0D0D0D;
+  --color-film-white: #F5F0E8;
+  --color-film-white2: #EDE8DD;
+  --color-film-mid: #7A7570;
+  --color-film-dim: #2A2825;
+  --color-film-accent: #FF5500;
+  --color-film-accent2: #CC4400;
+
+  /* Font families */
+  --font-display: var(--font-archivo-black), "Archivo Black", sans-serif;
+  --font-body: var(--font-lora), "Lora", serif;
+  --font-mono: var(--font-courier-prime), "Courier Prime", monospace;
+
+  /* Custom animations */
+  --animate-ping-dot: ping 2s infinite;
+  --animate-word-up: wordUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-up: fadeup 0.6s forwards;
+  --animate-fade-in: fadein 0.5s forwards;
+  --animate-clip-reveal: revealText 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  /* Easing */
+  --ease-film: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-wipe: cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* ─────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+───────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Design token aliases (used throughout CSS) */
+  --k: #0D0D0D;
+  --w: #F5F0E8;
+  --w2: #EDE8DD;
+  --mid: #7A7570;
+  --dim: #2A2825;
+  --acc: #FF5500;
+  --acc2: #CC4400;
+  --rule: rgba(245, 240, 232, 0.12);
+
+  /* Project accent (overridden per case study) */
+  --ca: var(--acc);
+
+  /* Typography aliases */
+  --fd: var(--font-archivo-black), "Archivo Black", sans-serif;
+  --fb: var(--font-lora), "Lora", serif;
+  --fm: var(--font-courier-prime), "Courier Prime", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─── BASE STYLES ─── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    background: var(--k);
+    color: var(--w);
+    font-family: var(--fb);
+    cursor: none;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--k);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(245, 240, 232, 0.12);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 240, 232, 0.2);
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--acc);
+    color: var(--k);
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    display: block;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── REVEAL ANIMATION (base) ─── */
+.rv {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+.d5 { transition-delay: 0.4s; }
+.d6 { transition-delay: 0.48s; }
+
+/* ─── KEYFRAMES ─── */
+@keyframes wordUp {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeHole {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes ping {
+  0% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 85, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0); }
+}
+
+@keyframes wipeRight {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes wipeLeft {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
 }
