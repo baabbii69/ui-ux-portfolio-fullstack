@@ -22,7 +22,7 @@ export const contactSection = defineType({
       name: "ctaButtonText",
       title: "CTA Button Text",
       type: "string",
-      initialValue: "yohanesalemu21@gmail.com",
+      initialValue: "yohanesalemu0069@gmail.com",
     }),
   ],
 });

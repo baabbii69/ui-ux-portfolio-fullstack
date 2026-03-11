@@ -9,29 +9,29 @@ export default function Footer() {
       >
         YOHANES ALEMU
       </Link>
-      
+
       <span className="font-mono text-[9px] tracking-[0.08em] text-[var(--mid)]">
         © {new Date().getFullYear()} — Designed with intention
       </span>
-      
+
       <div className="flex gap-7">
-        <a 
-          href="mailto:yohanesalemu21@gmail.com" 
+        <a
+          href="mailto:yohanesalemu0069@gmail.com"
           className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--mid)] hover:text-[var(--acc)] transition-colors duration-200"
         >
           Email
         </a>
-        <a 
-          href="#" 
-          target="_blank" 
+        <a
+          href="#"
+          target="_blank"
           rel="noopener noreferrer"
           className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--mid)] hover:text-[var(--acc)] transition-colors duration-200"
         >
           LinkedIn
         </a>
-        <a 
-          href="#" 
-          target="_blank" 
+        <a
+          href="#"
+          target="_blank"
           rel="noopener noreferrer"
           className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--mid)] hover:text-[var(--acc)] transition-colors duration-200"
         >
