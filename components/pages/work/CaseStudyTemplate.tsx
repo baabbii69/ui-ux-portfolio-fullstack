@@ -88,25 +88,6 @@ export default function CaseStudyTemplate({ project }: { project: Project }) {
               </div>
             ))}
           </motion.div>
-
-          {project.figmaUrl && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8"
-            >
-              <a
-                href={project.figmaUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-4 bg-[var(--dim)] border border-[var(--rule)] text-[var(--w)] px-6 py-4 font-mono text-[10px] tracking-[0.14em] uppercase transition-all duration-300 hover:border-[var(--ca)] hover:text-[var(--ca)]"
-              >
-                View Figma Design
-                <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-            </motion.div>
-          )}
         </div>
       </section>
 
@@ -131,7 +112,7 @@ export default function CaseStudyTemplate({ project }: { project: Project }) {
 
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-10%" }}
-            className="px-[5%] lg:pl-[72px] lg:pr-[52px] py-[60px] lg:py-[100px]"
+            className="px-[5%] lg:pl-[72px] lg:pr-[52px] py-[60px] lg:py-[100px] flex flex-col justify-between gap-16"
           >
             {project.stats && project.stats.length > 0 && (
               <div className="grid grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)] rounded-[4px] overflow-hidden">
@@ -146,6 +127,22 @@ export default function CaseStudyTemplate({ project }: { project: Project }) {
                     <div className="font-mono text-[9px] tracking-[0.12em] uppercase text-[var(--mid)]">{stat.label}</div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Figma Link identical to Showcase */}
+            {project.figmaUrl && (
+              <div>
+                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[var(--mid)] mb-6">View Design</div>
+                <a
+                  href={project.figmaUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-4 border border-[var(--ca)] text-[var(--ca)] px-8 py-4 font-mono text-[10px] tracking-[0.12em] uppercase transition-all duration-300 hover:bg-[var(--ca)] hover:text-[var(--k)]"
+                >
+                  Open in Figma
+                  <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </a>
               </div>
             )}
           </motion.div>

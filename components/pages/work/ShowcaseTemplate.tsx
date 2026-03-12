@@ -71,25 +71,6 @@ export default function ShowcaseTemplate({ project }: { project: Project }) {
               </div>
             ))}
           </motion.div>
-
-          {project.figmaUrl && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8"
-            >
-              <a
-                href={project.figmaUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-4 bg-[var(--dim)] border border-[var(--rule)] text-[var(--w)] px-6 py-4 font-mono text-[10px] tracking-[0.14em] uppercase transition-all duration-300 hover:border-[var(--ca)] hover:text-[var(--ca)]"
-              >
-                View Figma Design
-                <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-            </motion.div>
-          )}
         </div>
       </section>
 
