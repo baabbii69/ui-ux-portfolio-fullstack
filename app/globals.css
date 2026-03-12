@@ -71,7 +71,6 @@
     background: var(--k);
     color: var(--w);
     font-family: var(--fb);
-    cursor: none;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

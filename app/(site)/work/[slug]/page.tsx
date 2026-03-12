@@ -5,6 +5,8 @@ import CaseStudyTemplate from "@/components/pages/work/CaseStudyTemplate";
 import ShowcaseTemplate from "@/components/pages/work/ShowcaseTemplate";
 import { Metadata } from "next";
 
+export const revalidate = 60; // Fallback: regenerate page every 60 seconds if webhook missed
+
 // Pre-render dynamic routes at build time
 export async function generateStaticParams() {
   const slugs = await client.fetch(projectSlugsQuery);
