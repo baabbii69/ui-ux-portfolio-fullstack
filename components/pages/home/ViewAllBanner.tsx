@@ -6,7 +6,6 @@ export default function ViewAllBanner() {
   return (
     <Link 
       href="/work"
-      scroll={false}
       className="group flex flex-col xl:flex-row xl:items-center justify-between p-[36px_24px] xl:p-[36px_52px] border-b border-[var(--rule)] bg-[var(--k)] relative overflow-hidden transition-colors duration-300 no-underline text-inherit gap-5 xl:gap-0"
     >
       {/* Background Hover Expand */}

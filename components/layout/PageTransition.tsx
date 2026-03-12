@@ -16,6 +16,11 @@ export default function PageTransition({
     isInitialRender.current = false;
   }, []);
 
+  // Force scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const wipeVariants = {
     initial: { scaleX: 1, originX: 0 },
     animate: { 
