@@ -80,7 +80,7 @@ export default function Nav() {
       </Link>
 
       <ul className="hidden md:flex gap-10 list-none m-0 p-0">
-        <li><ScrambleLink href="/#work" text="Work" /></li>
+        <li><ScrambleLink href="/work" text="Work" /></li>
         <li><ScrambleLink href="/#about" text="About" /></li>
         <li><ScrambleLink href="/#process" text="Process" /></li>
         <li><ScrambleLink href="/#contact" text="Contact" /></li>
